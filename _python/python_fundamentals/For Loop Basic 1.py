@@ -18,7 +18,7 @@ for x in range (0, 500000):
     	print(x)
 #Countdown by Fours
 for x in range (2018, 0,-4) :
-    if x %2==0 : 
+    if x >0 : 
         print (x)
 #Flexible Counter
 lowNum =2
