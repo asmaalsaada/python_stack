@@ -29,15 +29,10 @@ class user:
 
     def make_deposite(self, amount):
         self.account_balance.deposite
-
     def make_withdrawal(self, amount):
         self.account_balance.withdrawal
-
     def display_user_balance(self):
         pass
-
-
-
 User1 = user('dee')
 User1.bankAccount.deposite(300)
 print("User1 has account balance of {} . " .format(User1.bankAccount.display_account_info()))
