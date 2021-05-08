@@ -22,8 +22,22 @@ class bankAccount:
         if self.account_balance > 0 :
             self.account_balance *= int_rate
         return self
+class user:
+    def __init__(self,  name):
+        self.name = name
+        self.bankAccount = bankAccount()
 
-acc1=bankAccount()
-acc1.deposite(500).deposite(100).deposite(100).withdrawal(300).display_account_info()
-acc2=bankAccount()
-acc2.deposite(200).deposite(200).withdrawal(100).withdrawal(150).withdrawal(200).withdrawal(50).display_account_info()
+    def make_deposite(self, amount):
+        self.account_balance.deposite
+
+    def make_withdrawal(self, amount):
+        self.account_balance.withdrawal
+
+    def display_user_balance(self):
+        pass
+
+
+
+User1 = user('dee')
+User1.bankAccount.deposite(300)
+print("User1 has account balance of {} . " .format(User1.bankAccount.display_account_info()))
