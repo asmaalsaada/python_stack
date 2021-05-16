@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results </title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0 auto;
+    }
+    .container{
+        border: 2px solid black;
+        width: 300px;
+        height: 300px;
+    }
+    button{
+        margin-top: 60px;
+        margin-left: 230px;
+    }
+    h1{
+        text-decoration: underline;
+    }
+    </style>
+    <script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Submitted info</h1>
+        <p>Name : {{session['Your_Name']}}</p>
+        <p>Dojo Location : {{session['Dojo_Loc']}}</p>
+        <p>Favorite Language : {{session['Fav_Lan']}}</p>
+        <p>Comment : {{session['comment']}}</p>
+        <button onclick="goBack()">Go back</button>
+    </div>
+
+</body>
+</html>
