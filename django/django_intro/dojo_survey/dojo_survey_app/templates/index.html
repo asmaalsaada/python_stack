@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0 auto;
+        }
+        form{
+            border: 2px solid black;
+            padding: 15px;
+            width: 500px;
+        } 
+        input[type="text"], select, textarea{
+            display: inline-block;
+            margin:20px;
+
+        }
+        button{
+            margin: 20px;
+            margin-left: 400px;
+        }
+    </style> 
+</head>
+<body>
+        <form action='/users' method='POST'>
+            {% csrf_token %}
+            <p>Your Name :<input type="text" name="name"> </p>
+            <p>Dojo Location :
+            <select name="dojo_loc">
+                <option value="ramallah">Ramallah</option>
+                <option value="hebron">Hebron</option>
+                <option value="nablus">Nablus</option>
+            </select> </p>
+            <p>Favorite Language : 
+            <select name="fav_lan">
+                <option value="Java">Java</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+            </select> </p>
+            <label for="">Comment :</label> <br>
+            <textarea name="text_box" cols="50" rows="5" ></textarea>
+            <button type="submit">Button</button>
+        </form>
+</body>
+</html>
