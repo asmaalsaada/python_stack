@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('handle_data',views.random),
+    path('process',views.process),
+    path('result',views.process),
+
 ]
