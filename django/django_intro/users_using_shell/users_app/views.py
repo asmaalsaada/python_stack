@@ -14,3 +14,10 @@ def show(request):
     email_address=request.POST['email_address'],
     age=request.POST['age'])
     return redirect('/')
+def get(request,number):
+
+    context = {
+        "first_name_view" :  Users.objects.get(id = number)
+    }
+
+    return render(request,'get.html',context)
