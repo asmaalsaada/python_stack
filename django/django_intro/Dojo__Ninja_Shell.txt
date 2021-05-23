@@ -1,0 +1,50 @@
+create 3 new dojos 
+Dojos.objects.create(name='Abdalrahman', city='Manhattan', state='New York')
+Dojos.objects.create(name='Asma', city='Seoul', state='Seoul')
+Dojos.objects.create(name='Baekhyun',city='Bucheon',state='Incheon')
+
+delete the 3 dojos
+c=Dojos.objects.get(id=1)
+>>> c.delete()
+c=Dojos.objects.get(id=2)
+>>> c.delete()
+c=Dojos.objects.get(id=3)
+>>> c.delete()
+
+
+create 3 new dojos x2 
+Dojos.objects.create(name='hazem',city='ramallah',state='pal')
+Dojos.objects.create(name='mousa',city='ramallah',state='pal')
+Dojos.objects.create(name='naser',city='ramallah',state='pal')
+
+create 3 ninja related to dojos (id=4)
+c = Ninja.objects.create(first_name='Kris',last_name='Kim',dojo=Dojos.objects.get(id=4))
+c = Ninja.objects.create(first_name='dave',last_name='carlos',dojo=Dojos.objects.get(id=4))
+>>> c = Ninja.objects.create(first_name='damon',last_name='paul',dojo=Dojos.objects.get(id=4))
+create 3 ninja related to dojos (id=5)
+c = Ninja.objects.create(first_name='Charles',last_name='Garfield',dojo=Dojos.objects.get(id=5))
+c = Ninja.objects.create(first_name='Charrrrrr',last_name='yyyyd',dojo=Dojos.objects.get(id=5))
+>>> c = Ninja.objects.create(first_name='tttt',last_name='yreh',dojo=Dojos.objects.get(id=5))
+create 3 ninja related to dojos (id=6)
+
+c = Ninja.objects.create(first_name='John',last_name='Jay',dojo=Dojos.objects.get(id=6))
+c = Ninja.objects.create(first_name='sam',last_name='m7mhd',dojo=Dojos.objects.get(id=6))
+>>> c = Ninja.objects.create(first_name='rani',last_name='ramez',dojo=Dojos.objects.get(id=6))
+
+show the first 
+Ninja.objects.filter(dojo=Dojos.objects.first())
+show the last 
+Ninja.objects.filter(dojo=Dojos.objects.last())
+last ninja's dojo
+ Ninja.objects.last().dojo
+<Dojos: Dojos object (6)>
+
+create a desc
+>python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0002_dojos_desc.py
+    - Add field desc to dojos
+
+create a new dojo
+ Dojos.objects.create(name='paul',city='seoul',state='Texas')
+<Dojos: Dojos object (7)>
