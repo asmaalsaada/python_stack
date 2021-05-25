@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Ninja Gold</title>
+    <style>
+        section{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .farm_box{
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        .cave_box{
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        .house_box{
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        .casino_box{
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        .title{
+            float: left;
+        }
+        article{
+            border: 2px solid black;
+            width: 80rem;
+            height: 200px;
+            margin-top: 150px;
+            display: justify;
+            overflow-y: scroll;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="gold_counter">
+        <p>Your gold : <span>{{request.session.gold}}</span></p>
+    </div>
+    <center>
+    <section>
+        <div class="farm_box">
+            <h2>Farm</h2>
+            <p>(earns 10-20 golds) </p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="inp" value="farm">
+                <button type='submit' name="farm_gold">Find Gold!</button>
+            </form>
+        </div>
+        <div class="cave_box">
+            <h2>Cave</h2>
+            <p>(earns 5-10 golds) </p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="inp" value="cave">
+                <button type='submit' name="cave_gold">Find Gold!</button>
+            </form>
+        </div>
+        <div class="house_box">
+            <h2>House</h2>
+            <p>(earns 2-5 golds) </p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="inp" value="house">
+                <button type='submit' name="house_gold">Find Gold!</button>
+            </form>
+        </div>
+        <div class="casino_box">
+            <h2>Casino</h2>
+            <p>(earns/loses 0-50 golds) </p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="inp" value="casino">
+                <button type='submit' name="casino_gold">Find Gold!</button>
+            </form>
+        </div>
+    </section>
+    <div class="title">
+        <p>Activities : </p>
+    </div>
+    <article >
+        {%for i in request.session.farm_log%}
+        <p>{{i}}</p>
+        {%endfor%}
+        {%for i in request.session.cave_log%}
+        <p>{{i}}</p>
+        {%endfor%}
+        {%for i in request.session.house_log%}
+        <p>{{i}}</p>
+        {%endfor%}
+        {%for i in request.session.casino_log%}
+        <p>{{i}}</p>
+        {%endfor%}
+        <!-- the time and session -->
+    </article>
+    </center>
+</body>
+</html>

@@ -1,0 +1,27 @@
+center{
+    margin: 100px;
+}
+.correct_guess{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    text-align: center;
+    border: 2px solid black;
+    color: white;
+}
+.too_high{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    text-align: center;
+    border: 2px solid black;
+    color: white;
+}
+.too_low{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    text-align: center;
+    border: 2px solid black;
+    color: white;
+}
