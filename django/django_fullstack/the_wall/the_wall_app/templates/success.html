@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Wall Assignment - Advanced</title>
+    <style>
+        header {
+            border-bottom: 2px solid black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    {% if messages %}
+    <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+    <header>
+        <h5>CodingDojo Wall</h5>
+        <h4>Welcome {{user.first_name}}! </h4>
+        <a href="/logout">Logout </a>
+    </header>
+    <h3>Post a Message</h3>
+    
+    
+    <form action="/msgs" method="POST">
+        {%csrf_token%}
+        <input type="hidden" value="{{user.id}}">
+        <textarea name="add_msg"  cols="80" rows="5"></textarea>
+        <input type="submit" value="Post a Message">
+    </form>
+    <p>{{user.first_name}} {{user.last_name}} - </p>
+    {% for i in msgs  %}
+    <ul>
+    <li>  {{i.user_id_id}}  {{i.user_id.first_name}} {{i.user_id.last_name}} - {{i.created_at}} : {{i.message}} 
+        <!-- <form action="del_msg/{{i.id}}" method="POST">
+            {%csrf_token%}
+            <input type="hidden" value="{{user.id}}">
+            <input type="submit" value="Delete message">
+        </form> -->
+        <ul>
+            <form method="post" action="addcomment/{{i.id}}">
+                {%csrf_token%}
+                <textarea name="comment"  cols="80" rows="5"></textarea>
+                <input type="submit" value="Post a comment">
+            </form>
+            {%for x in i.msg_cmnt.all%}
+            
+            <li>
+                User {{x.user_id.first_name}} {{x.user_id.last_name}} : {{x.comment}}
+    
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    </ul>
+    {%endfor%}
+</body>
+</html>
